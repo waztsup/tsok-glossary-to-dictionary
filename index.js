@@ -3,11 +3,11 @@ const fetch = require('node-fetch');
 const { parse } = require('node-html-parser');
 
 const outputFolder = './output';
-const initialFileName = 'The Wandering Inn';
+const initialFileName = 'tsok-disctionary';
 const fileExtension = 'txt';
 let fileVersion;
 // Url goes here
-const webPage = 'https://duckduckgo.com/';
+const webPage = 'https://mlwangbooks.com/glossary-main/';
 
 function getFileNameWithExtension(fileName = initialFileName, extension = fileExtension, version = fileVersion.version) {
     return `${fileName} - v${version}.${extension}`;
@@ -41,6 +41,10 @@ function saveData(data) {
     });
 }
 
+function clean(string) {
+    return string.replace(/&nbsp;/g, ' ').trim();
+}
+
 fs.readFile('file-version.json', (err, data) => {
     if (err) fileVersion = 0;
     fileVersion = JSON.parse(data);
@@ -53,5 +57,14 @@ fetch(webPage)
         const root = parse(body);
         // Parsing/filtering goes here, if it's messy, a new function can be created
         const data = root.querySelector('title').innerText;
-        saveData(data);
+        let definitions = Array.from(root.querySelectorAll('.entry-content.clearfix p')).slice(1, -1);
+        const dictionary = [];
+        definitions.forEach(definition => {
+            const key = clean(definition.querySelector('strong').innerText);
+            const value = clean(definition.innerText).substr(definition.innerText.indexOf(key) + key.length).trim();
+            dictionary.push({
+                key, value
+            });
+        });
+        saveData(JSON.stringify(dictionary));
     });
