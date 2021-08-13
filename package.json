@@ -1,0 +1,23 @@
+{
+  "name": "scrape-and-save",
+  "version": "1.0.0",
+  "description": "Scrape web content and save it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/waztsup/scrape-and-save.git"
+  },
+  "author": "wazt",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/waztsup/scrape-and-save/issues"
+  },
+  "homepage": "https://gitlab.com/waztsup/scrape-and-save#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "node-html-parser": "^4.1.3"
+  }
+}
