@@ -1,21 +1,21 @@
 {
-  "name": "scrape-and-save",
+  "name": "tsok-glossary-to-dictionary",
   "version": "1.0.0",
-  "description": "Scrape web content and save it.",
+  "description": "Scrape the TSoK Glossary and create a dictionary from it.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/waztsup/scrape-and-save.git"
+    "url": "git+https://gitlab.com/waztsup/tsok-glossary-to-dictionary.git"
   },
   "author": "wazt",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/waztsup/scrape-and-save/issues"
+    "url": "https://gitlab.com/waztsup/tsok-glossary-to-dictionary/issues"
   },
-  "homepage": "https://gitlab.com/waztsup/scrape-and-save#readme",
+  "homepage": "https://gitlab.com/waztsup/tsok-glossary-to-dictionary#readme",
   "dependencies": {
     "node-fetch": "^2.6.1",
     "node-html-parser": "^4.1.3"
